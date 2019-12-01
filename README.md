@@ -1,4 +1,4 @@
-# stateless_demo
+# flutter_create_stateless
 
 The original "flutter create" app re-written entirely with Stateless Widgets, using Provider to hold the app data-state. Could be useful as a reference for anyone, like me(!), who prefers Stateless Widgets ;-)
 
