@@ -55,9 +55,11 @@ class MyHomePage extends StatelessWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is (now) stateless,
-  //  meaning that it may define "final" vars only.
+  //  meaning that it may define "final" vars only. It may still be used for
+  //  a dynamic (changing) UI if it is passed dynamic data from outside and
+  //  the build method is re-run (which is precisely what happens in this App)
   //
-  // Any data that can change over time must be defined in an outer scope (aka
+  // Any data that can change over time can be defined in an outer scope (i.e.
   //  higher up the tree)
 
   final String title;
@@ -65,32 +67,36 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //
-    // for Stateless Widgets, the build context is accessible from within
-    //  "build" only, and we need that context to find the Provider state - so
-    //  much of the logic moves into the build method
-    // "listen: true" is the default already, but is included here just in case
-    //  you're wondering how to control that
+    // This method is rerun every time notifyListeners is called from the
+    //  Provider, as is done inside the _incrementCounter method below.
+    //
+    // for Stateless Widgets, the build context is accessible from within the
+    //  "build" method only, and we need that context to find the Provider
+    //  state higher up in the tree - so much of the logic moves into "build"
+    //
+    // "listen: true" is the default already, but is included here in case
+    //  you're wondering how to control that. In case you wanted to fetch the
+    //  value just once (ignoring subsequent updates), you could use
+    //  "listen: false" and that would avoid "build" being re-run needlessly
     final counterState = Provider.of<CounterState>(context, listen: true);
     //
-    // some convenience definitions to replace the vars from the original sample
-    //  app note that since these are defined inside the build method, they're
-    //  no longer instance properties and so there's no longer any value in
-    //  prefixing them with "_"
+    // some convenience definitions to replace the State instance properties
+    //  from the original sample app. Note that since these are defined inside
+    //  the build method, they're no longer instance properties and so there's
+    //  no longer any value in prefixing them with "_" (except that I do so to
+    //  minimize the code-changes in the Scaffold below)
     final _counter = counterState.value;
     void _incrementCounter() => counterState.increment();
-    // none of the code below here has changed from the original app
-
     //
-    // This method is rerun every time notifyListeners is called from the Provider,
-    //  for instance as done inside the _incrementCounter method above.
+    // none of the code below here has changed from the original app (although
+    //  the comments have been updated where appropriate)
     //
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value instance property, and use it to set our
-        //  appbar title.
+        // Here we take the title instance property, to set our appbar title.
         title: Text(title),
       ),
       body: Center(
