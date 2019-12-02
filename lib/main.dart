@@ -39,6 +39,10 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
+      // here's where we insert our Provider into the Widget tree. This
+      //  MyHomePage widget, and any widget created below that, can access this
+      //  instance of CounterState by simply calling
+      //  "Provider.of<CounterState>(context)" in it's build method.
       home: ChangeNotifierProvider(
         create: (context) => CounterState(),
         child: MyHomePage(title: 'Stateless Flutter Demo'),
