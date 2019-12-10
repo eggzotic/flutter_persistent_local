@@ -1,5 +1,5 @@
-name: flutter_create_stateless
-description: An alternate (Stateless) Flutter starter project.
+name: flutter_persistent_local
+description: The (Stateless) Flutter starter project, with persistent state via local-storage.
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -25,6 +25,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+
+  shared_preferences: ^0.5.4+8
 
 dev_dependencies:
   flutter_test:

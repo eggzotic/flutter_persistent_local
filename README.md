@@ -1,12 +1,13 @@
-# flutter_create_stateless
+# flutter_persistent_local
 
-The original "flutter create" app re-written entirely with Stateless Widgets, using Provider to hold the app data-state. Could be useful as a reference for anyone, like me(!), who prefers Stateless Widgets ;-)
+The original "flutter create" app re-written entirely with Stateless Widgets, using Provider to hold the app data-state. And now including:
+- persistent storage for the app state, via SharedPreferences
 
 ## Getting Started
 
-This project is an alternate starting point for a Flutter application.
+This project is a follow-on from my previous project located at https://github.com/eggzotic/flutter_create_stateless, which demonstrates how the original "flutter create ..." app can be written with Stateless Widgets only. Now we add persistent state via local (on-device) storage using Shared Preferences
 
-An intro to the capabilities of the Provider Plugin, by showing how it can replace the state of a Stateful Widget, using the default "flutter create" app. The original (Stateful Widget based) code is also here in the main.dart.orig file, for side-by-side comparison.
+Using the Provider and SharedPreferences packages, we manage persistent state.
 
 A few resources to get you started if this is your first Flutter project:
 
