@@ -60,7 +60,7 @@ class CounterState with ChangeNotifier {
       } else {
         // save
         // uncomment this to simulate an error during save
-        if (_value > 3) throw Exception("Artificial Error");
+        // if (_value > 3) throw Exception("Artificial Error");
         await prefs.setInt(_sharedPrefsKey, _value);
       }
       _hasError = false;
